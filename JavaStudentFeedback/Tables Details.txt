@@ -1,0 +1,99 @@
+
+*********************************************************************
+*********************************************************************
+*********************************************************************
+
+create table userData1(id INT AUTO_INCREMENT PRIMARY KEY, username varchar(255), pass varchar(255), email varchar(255), mob varchar(255), address varchar(255), gender varchar(255), qual varchar(255), nation varchar(255));
+
+
+create table userFeedback(id INT AUTO_INCREMENT PRIMARY KEY,IDfk int,f_message varchar(255),rating varchar(20),f_date varchar(255),FOREIGN KEY (IDfk) REFERENCES userData1(id));
+
+
+*********************************************************************
+*********************************************************************
+*********************************************************************
+
+
+
+		***************	SQL Logs ***************
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.33 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use mydb
+Database changed
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| ceg                |
+| information_schema |
+| mydb               |
+| mydb1              |
+| mydb12             |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+8 rows in set (1.23 sec)
+
+mysql> create table userData1(id INT AUTO_INCREMENT PRIMARY KEY, username varchar(255), pass varchar(255), email varchar(255), mob varchar(255), address varchar(255), gender varchar(255), qual varchar(255), nation varchar(255));
+Query OK, 0 rows affected (2.50 sec)
+
+mysql> create table userFeedback(id INT AUTO_INCREMENT PRIMARY KEY,IDfk int,f_message varchar(255),rating varchar(20),f_date varchar(255),FOREIGN KEY (IDfk) REFERENCES userData1(id));
+Query OK, 0 rows affected (0.72 sec)
+
+mysql> show tables;
++----------------+
+| Tables_in_mydb |
++----------------+
+| author         |
+| authors        |
+| company        |
+| department     |
+| employees      |
+| students       |
+| test           |
+| userdata1      |
+| userfeedback   |
++----------------+
+9 rows in set (0.00 sec)
+
+mysql> desc userfeedback;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| id        | int          | NO   | PRI | NULL    | auto_increment |
+| IDfk      | int          | YES  | MUL | NULL    |                |
+| f_message | varchar(255) | YES  |     | NULL    |                |
+| rating    | varchar(20)  | YES  |     | NULL    |                |
+| f_date    | varchar(255) | YES  |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> desc userdata1;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int          | NO   | PRI | NULL    | auto_increment |
+| username | varchar(255) | YES  |     | NULL    |                |
+| pass     | varchar(255) | YES  |     | NULL    |                |
+| email    | varchar(255) | YES  |     | NULL    |                |
+| mob      | varchar(255) | YES  |     | NULL    |                |
+| address  | varchar(255) | YES  |     | NULL    |                |
+| gender   | varchar(255) | YES  |     | NULL    |                |
+| qual     | varchar(255) | YES  |     | NULL    |                |
+| nation   | varchar(255) | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+9 rows in set (0.00 sec)
+
+mysql>
